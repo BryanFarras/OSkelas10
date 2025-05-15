@@ -1,11 +1,9 @@
 #include<stdio.h>
-#include<conio.h>
+
 main()
 {
     int ms, ps, nop, np, rempages, i, j, x, y, pa, offset;
     int s[10], fno[10][20];
-
-    clrscr();
 
     printf("\nEnter the memory size -- ");
     scanf("%d",&ms);
@@ -56,5 +54,4 @@ main()
         printf("\nThe Physical Address is -- %d",pa);
 
     }
-    getch();
 }

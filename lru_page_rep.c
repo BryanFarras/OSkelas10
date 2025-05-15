@@ -1,10 +1,9 @@
 #include<stdio.h>
-#include<conio.h>
+
 main()
 {
     int i, j , k, min, rs[25], m[10], count[10], flag[25], n, f, pf=0, next=1;
 
-    clrscr();
     printf("Enter the length of reference string -- ");
     scanf("%d",&n);
 
@@ -66,5 +65,4 @@ main()
         printf("\n");
     }
     printf("\nThe number of page faults using LRU are %d",pf);
-    getch();
 }
