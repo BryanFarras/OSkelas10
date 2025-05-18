@@ -1,57 +1,58 @@
-#include<stdio.h>
+#include <stdio.h>
 
-main()
+int main()
 {
     int ms, ps, nop, np, rempages, i, j, x, y, pa, offset;
     int s[10], fno[10][20];
 
-    printf("\nEnter the memory size -- ");
-    scanf("%d",&ms);
+    printf("Enter the memory size: ");
+    scanf("%d", &ms);
 
-    printf("\nEnter the page size -- ");
-    scanf("%d",&ps);
+    printf("Enter the page size: ");
+    scanf("%d", &ps);
 
-    nop = ms/ps;
-    printf("\nThe no. of pages available in memory are -- %d ",nop);
+    nop = ms / ps;
+    printf("The number of pages available in memory: %d\n", nop);
 
-    printf("\nEnter number of processes -- ");
-    scanf("%d",&np);
+    printf("Enter number of processes (max 10): ");
+    scanf("%d", &np);
+
     rempages = nop;
 
-    for(i=1;i<=np;i++)
-
+    for (i = 0; i < np; i++)
     {
+        printf("\nEnter number of pages required for process[%d]: ", i);
+        scanf("%d", &s[i]);
 
-        printf("\nEnter no. of pages required for p[%d]-- ",i);
-        scanf("%d",&s[i]);
-
-        if(s[i] >rempages)
+        if (s[i] > rempages)
         {
-
-            printf("\nMemory is Full");
+            printf("Memory is Full\n");
             break;
         }
-        rempages = rempages - s[i];
 
-        printf("\nEnter pagetable for p[%d] --- ",i);
-        for(j=0;j<s[i];j++)
-        scanf("%d",&fno[i][j]);
+        rempages -= s[i];
+
+        printf("Enter page table for process[%d] (%d values):\n", i, s[i]);
+        for (j = 0; j < s[i]; j++)
+        {
+            printf("Page %d -> Frame: ", j);
+            scanf("%d", &fno[i][j]);
+        }
     }
 
-    printf("\nEnter Logical Address to find Physical Address ");
-    printf("\nEnter process no. and pagenumber and offset -- ");
+    printf("\nEnter Logical Address to find Physical Address\n");
+    printf("Enter process number, page number, and offset (separated by space): ");
+    scanf("%d %d %d", &x, &y, &offset);
 
-    scanf("%d %d %d",&x,&y, &offset);
-
-
-
-    if(x>np || y>=s[i] || offset>=ps)
+    if (x >= np || y >= s[x] || offset >= ps)
     {
-        printf("\nInvalid Process or Page Number or offset");
+        printf("Invalid process number, page number, or offset.\n");
     }
     else
-    { pa=fno[x][y]*ps+offset;
-        printf("\nThe Physical Address is -- %d",pa);
-
+    {
+        pa = fno[x][y] * ps + offset;
+        printf("The Physical Address is: %d\n", pa);
     }
+
+    return 0;
 }

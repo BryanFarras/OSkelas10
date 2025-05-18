@@ -1,6 +1,6 @@
 #include<stdio.h>
 
-main()
+int main()
 {
     int i, j, k, f, pf=0, count=0, rs[25], m[10], n;
     printf("\n Enter the length of reference string -- ");
@@ -43,4 +43,6 @@ main()
             count=0;
     }
     printf("\n The number of Page Faults using FIFO are %d",pf);
+
+    printf("\n");
 }

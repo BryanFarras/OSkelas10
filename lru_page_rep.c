@@ -1,6 +1,6 @@
 #include<stdio.h>
 
-main()
+int main()
 {
     int i, j , k, min, rs[25], m[10], count[10], flag[25], n, f, pf=0, next=1;
 
@@ -65,4 +65,5 @@ main()
         printf("\n");
     }
     printf("\nThe number of page faults using LRU are %d",pf);
+    printf("\n");
 }
